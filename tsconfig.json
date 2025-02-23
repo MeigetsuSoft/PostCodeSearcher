@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "noEmitOnError": true,
+        "removeComments": false,
+        "target": "ES2022",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
+        "strict": true,
+        "outDir": "dist/",
+        "module": "UMD",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "allowJs": true,
+        "declaration": false,
+        "sourceMap": false
+    },
+    "include": ["src/**/*"],
+    "exclude": ["src/*.test.ts"],
+    "ts-node": {
+        "esm": true,
+        "experimentalSpecifierResolution": "node"
+    }
+}
