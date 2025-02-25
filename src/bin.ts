@@ -7,8 +7,7 @@ import PostCodeDataLoader from './index';
 const options = commandLineArgs([
     { name: 'init-package', alias: 'i', type: Boolean },
     { name: 'master-csv-path', alias: 'm', type: String, defaultValue: 'KEN_ALL.CSV' },
-    { name: 'search-postcode', alias: 'p', type: Boolean },
-    { name: 'postcode', type: String },
+    { name: 'search', alias: 's', type: String },
 ]);
 
 if (options['init-package']) {
@@ -20,9 +19,9 @@ if (options['init-package']) {
         writeJson(`./postcodes/master/${prefecture}.json`, { postcodes: Records });
     });
 }
-else if (options['search-postcode']) {
+else if (options['search']) {
     const SearchEngine = new PostCodeDataLoader();
-    const result = SearchEngine.get(options['postcode']);
+    const result = SearchEngine.get(options['search']);
     if ('prefecture' in result) console.log(`${result.prefecture}${result.city}${result.address}`);
     else console.log('この郵便番号は存在しません');
 }
