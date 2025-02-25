@@ -1,5 +1,7 @@
 # Post Code Searcher
 
+[![Coverage Status](https://coveralls.io/repos/github/MeigetsuSoft/PostCodeSearcher/badge.svg?branch=master)](https://coveralls.io/github/MeigetsuSoft/PostCodeSearcher?branch=master)
+
 このパッケージは、日本全国の郵便番号の検索を行うことができるパッケージです。
 
 ## 使い方
