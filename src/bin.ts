@@ -8,6 +8,7 @@ const options = commandLineArgs([
     { name: 'init-package', alias: 'i', type: Boolean },
     { name: 'master-csv-path', alias: 'm', type: String, defaultValue: 'KEN_ALL.CSV' },
     { name: 'search', alias: 's', type: String },
+    { name: 'help', alias: 'h', type: Boolean }
 ]);
 
 if (options['init-package']) {
@@ -24,4 +25,8 @@ else if (options['search']) {
     const result = SearchEngine.get(options['search']);
     if ('prefecture' in result) console.log(`${result.prefecture}${result.city}${result.address}`);
     else console.log('この郵便番号は存在しません');
+}
+else {
+    console.log('Usage: postcode -i --master-csv-path <path>');
+    console.log('       postcode -p <postcode>');
 }
