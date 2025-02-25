@@ -6,8 +6,10 @@ import jestPlugin from 'eslint-plugin-jest';
 
 export default [
     {
+        ignores: ['**/node_modules/**', '**/dist/**', '**/public/**'],
+    },
+    {
         files: ['**/*.{js,mjs,cjs,ts}'],
-        ignores: ['node_modules', 'dist', 'build', 'coverage'],
         languageOptions: { globals: globals.browser },
         plugins: {
             jest: jestPlugin,
