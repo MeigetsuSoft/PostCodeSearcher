@@ -100,7 +100,7 @@ const hankakuToZenkakuMap = {
 };
 
 export function ConvertNarrowToWideKana(Kana: string): string {
-    if (Kana == null) return Kana;
+    if (Kana.length === 0) return Kana;
     Object.keys(hankakuToZenkakuMap).forEach(i => {
         Kana = Kana.replaceAll(i, hankakuToZenkakuMap[i]);
     });

@@ -10,6 +10,7 @@ describe('Convert narrow to wide kana', () => {
         expect(ConvertNarrowToWideKana('ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ')).toBe('パピプペポ');
         expect(ConvertNarrowToWideKana('ｳﾞﾜﾞｦﾞ')).toBe('ヴヷヺ');
         expect(ConvertNarrowToWideKana('ｻｰﾊﾞｰｱﾌﾟﾘｹｰｼｮﾝ')).toBe('サーバーアプリケーション');
+        expect(ConvertNarrowToWideKana('')).toBe('');
     });
 });
 
