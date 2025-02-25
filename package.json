@@ -2,6 +2,7 @@
   "name": "postcodesearcher",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
     "postcode": "dist/bin.js"
   },
