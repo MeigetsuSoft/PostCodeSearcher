@@ -18,7 +18,7 @@
     "prepack": "npm run build"
   },
   "author": "Meigetsu",
-  "license": "MIT",
+  "license": "SEE LICENSE IN https://license.meigetsu.jp/?id=8AFD146A24D641948F0A956515B897E5",
   "description": "",
   "dependencies": {
     "command-line-args": "^6.0.1",
