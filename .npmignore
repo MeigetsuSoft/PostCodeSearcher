@@ -144,3 +144,5 @@ eslint.config.mjs
 jest.config.ts
 src/
 tsconfig.json
+.github/
+dist/bin.d.ts
