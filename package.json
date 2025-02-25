@@ -15,7 +15,6 @@
     "eslint:fix": "eslint --cache --ext .js,.ts . --fix",
     "test": "jest",
     "build": "tsc",
-    "postbuild": "node ./add-js-extension.js dist/",
     "prepack": "npm run build"
   },
   "author": "Meigetsu",
