@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import commandLineArgs from 'command-line-args';
 import { readDataFromCSV } from './read';
-import { writeJson } from 'nodeeasyfileio';
+import { writeFile, writeJson } from 'nodeeasyfileio';
 import PostCodeDataLoader from './index';
 
 const options = commandLineArgs([
@@ -19,6 +19,8 @@ if (options['init-package']) {
         const Records = MasterCSV.filter(i => i[6] === prefecture);
         writeJson(`./postcodes/master/${prefecture}.json`, { postcodes: Records });
     });
+    writeFile('./postcodes/master/data.txt', new Date().toLocaleString());
+    console.log('初期化が完了しました。')
 } else if (options['search']) {
     const SearchEngine = new PostCodeDataLoader();
     const result = SearchEngine.get(options['search']);
