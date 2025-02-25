@@ -4,13 +4,13 @@ describe('PostCodeDataLoader', () => {
     const PCDL = new PostCodeDataLoader();
     it('should return record', () => {
         expect(PCDL.get('1000000')).toStrictEqual({
-            id: expect.any(Number),
-            postcode: '1000000',
+            id: 1000000,
+            postcode: '100-0000',
             prefecture: '東京都',
             city: '千代田区',
         });
         expect(PCDL.get('107-0062')).toStrictEqual({
-            id: expect.any(Number),
+            id: 1070062,
             postcode: '107-0062',
             prefecture: '東京都',
             city: '港区',
@@ -19,8 +19,8 @@ describe('PostCodeDataLoader', () => {
     });
     it('should return new address', () => {
         expect(PCDL.get('2700104')).toStrictEqual({
-            id: expect.any(Number),
-            postcode: '2700104',
+            id: 2700104,
+            postcode: '270-0104',
             prefecture: '千葉県',
             city: '流山市',
             address: '森のロジスティクスパーク',
@@ -31,8 +31,8 @@ describe('PostCodeDataLoader', () => {
     });
     it('should return updated address', () => {
         expect(PCDL.get('1630701')).toStrictEqual({
-            id: 1751,
-            postcode: '1630701',
+            id: 1630701,
+            postcode: '163-0701',
             prefecture: '東京都',
             city: '新宿区',
             address: '西新宿２丁目７番１号　新宿第一生命ビルディング１階',

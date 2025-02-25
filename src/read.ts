@@ -113,11 +113,12 @@ export function readDataFromCSV(FilePath: string): PostCodeRecord<number, string
     if (!existsSync(FilePath)) throw new Error(`${FilePath}: File not found`);
     const Data = readCSV(FilePath);
     return Data.filter(i => i.length > 9 && i.some(j => j != null && j !== ''))
-        .map((i, index) => {
+        .map(i => {
             i = i.map(j => j.replaceAll('"', ''));
+            const PostCode = i[2];
             const Data = {
-                id: index,
-                postcode: i[2],
+                id: parseInt(PostCode),
+                postcode: PostCode.slice(0, 3) + '-' + PostCode.slice(3),
                 prefecture: i[6],
                 city: i[7],
                 address: i[8] === '以下に掲載がない場合' ? undefined : i[8],
