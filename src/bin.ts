@@ -20,7 +20,7 @@ if (options['init-package']) {
         writeJson(`./postcodes/master/${prefecture}.json`, { postcodes: Records });
     });
     writeFile('./postcodes/master/data.txt', new Date().toLocaleString());
-    console.log('初期化が完了しました。')
+    console.log('初期化が完了しました。');
 } else if (options['search']) {
     const SearchEngine = new PostCodeDataLoader();
     const result = SearchEngine.get(options['search']);
