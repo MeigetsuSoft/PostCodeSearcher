@@ -1,9 +1,9 @@
 {
-  "name": "postcodeloader",
+  "name": "postcodesearcher",
   "version": "1.0.0",
   "main": "dist/index.js",
   "bin": {
-    "postcodeloader": "dist/bin.js"
+    "postcode": "dist/bin.js"
   },
   "engines": {
     "node": ">=21.0.0"
