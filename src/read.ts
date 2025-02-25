@@ -112,7 +112,7 @@ export function ConvertNarrowToWideKana(Kana: string): string {
 export function readDataFromCSV(FilePath: string): PostCodeRecord<number, string>[] {
     if (!existsSync(FilePath)) throw new Error(`${FilePath}: File not found`);
     const Data = readCSV(FilePath);
-    return Data.filter(i => i.length > 0)
+    return Data.filter(i => i.length > 9 && i.some(j => j != null && j !== ''))
         .map((i, index) => {
             i = i.map(j => j.replaceAll('"', ''));
             const Data = {
