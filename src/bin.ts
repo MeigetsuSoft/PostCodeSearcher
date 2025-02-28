@@ -27,6 +27,7 @@ if (options['init-package']) {
     if ('prefecture' in result) console.log(`${result.prefecture}${result.city}${result.address}`);
     else console.log('この郵便番号は存在しません');
 } else {
+    if (!options['help']) console.log('Command line arguments are required.');
     console.log('Usage: postcode -i --master-csv-path <path>');
     console.log('       postcode -p <postcode>');
 }
