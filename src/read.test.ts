@@ -23,6 +23,8 @@ describe('reader test', () => {
                 city: '札幌市中央区',
                 postcode: '060-0000',
                 prefecture: '北海道',
+                prefecture_kana: 'ホッカイドウ',
+                city_kana: 'サッポロシチュウオウク',
             });
             expect(Data[1]).toStrictEqual({
                 id: 640941,
@@ -30,6 +32,9 @@ describe('reader test', () => {
                 postcode: '064-0941',
                 prefecture: '北海道',
                 city: '札幌市中央区',
+                prefecture_kana: 'ホッカイドウ',
+                city_kana: 'サッポロシチュウオウク',
+                address_kana: 'アサヒガオカ',
             });
         });
         it('Not found', () => {

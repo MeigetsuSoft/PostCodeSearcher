@@ -3,43 +3,56 @@ import PostCodeDataLoader from '.';
 describe('PostCodeDataLoader', () => {
     const PCDL = new PostCodeDataLoader();
     it('should return record', () => {
-        expect(PCDL.get('1000000')).toStrictEqual({
-            id: 1000000,
-            postcode: '100-0000',
-            prefecture: '東京都',
-            city: '千代田区',
-        });
-        expect(PCDL.get('107-0062')).toStrictEqual({
-            id: 1070062,
-            postcode: '107-0062',
-            prefecture: '東京都',
-            city: '港区',
-            address: '南青山',
-        });
+        expect(PCDL.get('1000000')).toStrictEqual([
+            {
+                id: 1000000,
+                postcode: '100-0000',
+                prefecture: '東京都',
+                city: '千代田区',
+                prefecture_kana: 'トウキョウト',
+                city_kana: 'チヨダク',
+            },
+        ]);
+        expect(PCDL.get('107-0062')).toStrictEqual([
+            {
+                id: 1070062,
+                postcode: '107-0062',
+                prefecture: '東京都',
+                city: '港区',
+                address: '南青山',
+                prefecture_kana: 'トウキョウト',
+                city_kana: 'ミナトク',
+                address_kana: 'ミナミアオヤマ',
+            },
+        ]);
     });
     it('should return new address', () => {
-        expect(PCDL.get('2700104')).toStrictEqual({
-            id: 2700104,
-            postcode: '270-0104',
-            prefecture: '千葉県',
-            city: '流山市',
-            address: '森のロジスティクスパーク',
-            prefecture_kana: 'チバケン',
-            city_kana: 'ナガレヤマシ',
-            address_kana: 'モリノロジスティクスパーク',
-        });
+        expect(PCDL.get('2700104')).toStrictEqual([
+            {
+                id: 2700104,
+                postcode: '270-0104',
+                prefecture: '千葉県',
+                city: '流山市',
+                address: '森のロジスティクスパーク',
+                prefecture_kana: 'チバケン',
+                city_kana: 'ナガレヤマシ',
+                address_kana: 'モリノロジスティクスパーク',
+            },
+        ]);
     });
     it('should return updated address', () => {
-        expect(PCDL.get('1630701')).toStrictEqual({
-            id: 1630701,
-            postcode: '163-0701',
-            prefecture: '東京都',
-            city: '新宿区',
-            address: '西新宿２丁目７番１号　新宿第一生命ビルディング１階',
-            prefecture_kana: 'トウキョウト',
-            city_kana: 'シンジュクク',
-            address_kana: 'ニシシンジュク２チョウメ７バン１ゴウ　シンジュクダイイチセイメイビルディング１カイ',
-        });
+        expect(PCDL.get('1630701')).toStrictEqual([
+            {
+                id: 1630701,
+                postcode: '163-0701',
+                prefecture: '東京都',
+                city: '新宿区',
+                address: '西新宿２丁目７番１号　新宿第一生命ビルディング１階',
+                prefecture_kana: 'トウキョウト',
+                city_kana: 'シンジュクク',
+                address_kana: 'ニシシンジュク２チョウメ７バン１ゴウ　シンジュクダイイチセイメイビルディング１カイ',
+            },
+        ]);
     });
     it('should return postcode only(no data)', () => {
         expect(PCDL.get('1234567')).toStrictEqual({

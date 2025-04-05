@@ -14,18 +14,22 @@ const options = commandLineArgs([
 if (options['init-package']) {
     if (!options['master-csv-path']) throw new Error('master-csv-path is required');
     const MasterCSV = readDataFromCSV(options['master-csv-path']);
-    const Prefectures = MasterCSV.map(i => i[6]).filter((x, i, self) => self.indexOf(x) === i);
+    const Prefectures = MasterCSV.map(i => i.prefecture).filter((x, i, self) => self.indexOf(x) === i);
     Prefectures.forEach(prefecture => {
-        const Records = MasterCSV.filter(i => i[6] === prefecture);
+        const Records = MasterCSV.filter(i => i.prefecture === prefecture);
         writeJson(`./postcodes/master/${prefecture}.json`, { postcodes: Records });
     });
     writeFile('./postcodes/master/data.txt', new Date().toLocaleString());
     console.log('初期化が完了しました。');
 } else if (options['search']) {
     const SearchEngine = new PostCodeDataLoader();
-    const result = SearchEngine.get(options['search']);
-    if ('prefecture' in result) console.log(`${result.prefecture}${result.city}${result.address}`);
-    else console.log('この郵便番号は存在しません');
+    const results = SearchEngine.get(options['search']);
+    if ('postcode' in results) console.log('この郵便番号は存在しません');
+    else {
+        results.forEach(result => {
+            console.log(`${result.prefecture}${result.city}${result.address}`);
+        });
+    }
 } else {
     if (!options['help']) console.log('Command line arguments are required.');
     console.log('Usage: postcode -i --master-csv-path <path>');
