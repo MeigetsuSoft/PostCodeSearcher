@@ -1,4 +1,4 @@
-export default function equalObj(a: Object, b: Object): boolean {
+export default function equalObj(a: object, b: object): boolean {
     const aKeys = Object.keys(a);
     const bKeys = Object.keys(b);
     if (!aKeys.every(i => bKeys.includes(i)) || !bKeys.every(i => aKeys.includes(i))) return false;
